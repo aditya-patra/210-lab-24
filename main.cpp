@@ -101,6 +101,6 @@ int main_menu() {
         if (input > 0 && input < 5) {
             return input;
         }
-        cout << "Invalid input" << endl;
+        cout << "Invalid input " << endl;
     }
 }
