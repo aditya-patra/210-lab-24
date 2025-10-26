@@ -8,10 +8,10 @@ using namespace std;
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 int num_goats_made = 0;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string name[], string color[]);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat> trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string name[], string color[]);
+void display_trip(set<Goat> trip);
 int main_menu();
 
 int main() {
@@ -56,7 +56,7 @@ int main() {
     return 0;
 }
 
-int select_goat(list<Goat> trip) {
+int select_goat(set<Goat> trip) {
     int usr_choice;
     while (true) {
         display_trip(trip);
@@ -68,7 +68,7 @@ int select_goat(list<Goat> trip) {
         cout << "Not valid option" << endl;
     }
 }
-void delete_goat(list<Goat> &trip) {
+void delete_goat(set<Goat> &trip) {
     int goat_num = select_goat(trip);
     int ctr = 0;
     for(auto i = trip.begin(); i != trip.end(); i++) {
@@ -80,11 +80,11 @@ void delete_goat(list<Goat> &trip) {
     }
 }
 
-void add_goat(list<Goat> &trip, string name[], string color[]) {
+void add_goat(set<Goat> &trip, string name[], string color[]) {
     Goat * goat = new Goat(name[num_goats_made % SZ_NAMES], (int)(rand()) % (MAX_AGE+1), color[num_goats_made % SZ_COLORS]);
     trip.push_back(*goat);
 }
-void display_trip(list<Goat> trip) {
+void display_trip(set<Goat> trip) {
     int ctr = 1;
     for(auto i = trip.begin(); i != trip.end(); i++){
         cout << "[" << ctr << "] " << (*i).get_name() << " (" << (*i).get_age() << ", " << (*i).get_color() << ")" << endl;
