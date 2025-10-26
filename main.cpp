@@ -81,7 +81,7 @@ void delete_goat(set<Goat> &trip) {
 }
 
 void add_goat(set<Goat> &trip, string name[], string color[]) {
-    Goat goat = Goat(name[num_goats_made % SZ_NAMES], (int)(rand()) % (MAX_AGE+1), color[num_goats_made % SZ_COLORS]);
+    Goat * goat = Goat(name[num_goats_made % SZ_NAMES], (int)(rand()) % (MAX_AGE+1), color[num_goats_made % SZ_COLORS]);
     trip.insert(goat);
 }
 void display_trip(set<Goat> trip) {
